@@ -194,6 +194,3 @@ section > .wrap.stack { padding-top: 80px; padding-bottom: 80px; }
 textarea.input { resize: vertical; }
 select.input { appearance: auto; }
 .form-error { margin: 0; color: #A3133F; font-weight: 800; }
-
-/* announcement banner */
-.announce { background: var(--ink); color: var(--sun); text-align: center; font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: .02em; padding: 10px 16px; }
