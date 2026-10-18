@@ -183,7 +183,7 @@
         '',
         v('message')
       ].join('\n');
-      window.location.href = 'mailto:hello@squishysays.com?subject=' +
+      window.location.href = 'mailto:info@squishysays.com?subject=' +
         encodeURIComponent('Wholesale inquiry — ' + v('store')) +
         '&body=' + encodeURIComponent(body);
     });

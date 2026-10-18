@@ -32,7 +32,7 @@
 - [ ] Domain auto-renew ON and transfer lock ON at Network Solutions
 
 ### Email
-- [ ] Set up `hello@squishysays.com` (Google Workspace, or a free forwarder to a personal inbox). The site's contact buttons already point to it — **until it works, vendor emails bounce.**
+- [ ] Set up `info@squishysays.com` (Google Workspace, or a free forwarder to a personal inbox). The site's contact buttons already point to it — **until it works, vendor emails bounce.**
 
 ### Content the owners must confirm
 - [ ] Color → answer key: box back vs. fortune board disagree. Site uses the box back.
