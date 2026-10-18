@@ -13,8 +13,9 @@
 
 ### Repo & hosting
 - [x] Static site built: homepage, fortune demo, answer key, story, wholesale, contact
-- [ ] Create empty **public** GitHub repo `trkeogh-blip/squishy-says` (no README)
-- [ ] Push this code to `main`
+- [x] Split into three pages: Home, Shop (Buy button "Coming soon"), Wholesale (inquiry form → pre-filled email)
+- [x] Create empty **public** GitHub repo `trkeogh-blip/squishy-says` (no README)
+- [x] Push this code to `main`
 - [ ] Settings → Pages → Source: *Deploy from a branch*, `main` / root
 - [ ] Confirm the preview at `https://trkeogh-blip.github.io/squishy-says/`
 
@@ -45,7 +46,13 @@
 
 ---
 
-## Phase 2 — Store (later)
-- Shopify plan; theme repo connected via Shopify's GitHub integration
+## Phase 2 — Start selling (when the owners say go)
+Cheapest path, no monthly fee: **Stripe Payment Link**
+- [ ] Create a Stripe account; add the product, price, shipping and sales tax settings
+- [ ] Create a Payment Link (allow quantity adjustment; collect shipping address)
+- [ ] Paste the link and price into `SHOP` at the top of `assets/js/site.js` → the Buy button goes live
+- [ ] Add shipping/returns and privacy pages
+
+Upgrade path if volume grows: Shopify plan; theme repo connected via Shopify's GitHub integration
 - Point DNS from GitHub Pages to Shopify (A `@` → Shopify IP, CNAME `www` → `shops.myshopify.com.`)
 - Product page, shipping/returns, privacy policy, wholesale form

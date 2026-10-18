@@ -26,8 +26,11 @@ way to get in touch.
   Solutions**; DNS records are in `PLAN.md`.
 
 ## Rules for any agent working here
-1. **No selling.** Don't add prices, carts, "buy" buttons or payment code until
-   PLAN.md Phase 2 is approved.
+1. **Selling is switched off until the owners say go.** Pages: `index.html`
+   (home), `shop.html` (direct purchase), `wholesale.html` (trade inquiries).
+   The Shop page's Buy button reads "Coming soon" until `SHOP.paymentLink` and
+   `SHOP.price` are set at the top of `assets/js/site.js`. Never fill those in,
+   or invent a price, without the owners' explicit go-ahead.
 2. **Brand voice:** playful, bright, kid-safe. Bubble-letter logo; palette pink,
    aqua, yellow, purple on a soft blush ground; Fredoka (display) + Nunito (body).
 3. **The answer key lives in one place:** the `ANSWERS` array in

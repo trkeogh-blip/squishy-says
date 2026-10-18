@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Squishy Says™</title>
+<meta name="description" content="Get Squishy Says, the fortune-telling squishy. Ask it, squish it, see your fortune!">
+<meta property="og:type" content="product">
+<meta property="og:title" content="Shop Squishy Says™">
+<meta property="og:image" content="https://www.squishysays.com/assets/img/og-image.jpg">
+<meta name="theme-color" content="#FFE3F1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand" aria-label="Squishy Says home"><img src="assets/img/logo.png" alt="Squishy Says" width="200" height="100"></a>
+    <nav aria-label="Main" class="nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html" aria-current="page">Shop</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="band-blush-soft">
+  <div class="wrap product">
+    <div class="gallery">
+      <img id="mainImg" class="card-img gallery-main" src="assets/img/packaging.jpg" alt="Squishy Says in its clear cube box" width="1400" height="933">
+      <div class="thumbs" role="group" aria-label="Product photos">
+        <button type="button" class="thumb is-active" data-src="assets/img/packaging.jpg" data-alt="Squishy Says in its clear cube box" aria-label="Show packaging photo"><img src="assets/img/packaging.jpg" alt="" width="140" height="93"></button>
+        <button type="button" class="thumb" data-src="assets/img/fortune-board.jpg" data-alt="All six colors and their fortunes" aria-label="Show the six fortunes"><img src="assets/img/fortune-board.jpg" alt="" width="93" height="93"></button>
+        <button type="button" class="thumb" data-src="assets/img/fortune-fun.jpg" data-alt="Squishy Says with colorful fortune balls" aria-label="Show fortune fun photo"><img src="assets/img/fortune-fun.jpg" alt="" width="93" height="93"></button>
+      </div>
+      <p class="fine">Product images are pre-production renderings.</p>
+    </div>
+
+    <div class="stack product-info">
+      <span class="pill pill-yellow" id="stockPill">Coming soon</span>
+      <h1 class="product-title">Squishy Says™</h1>
+      <p class="lead">The fortune-telling squishy. Ask a question, give it a squish, and see your fortune!</p>
+      <p class="price" id="priceLabel">Price coming soon</p>
+
+      <a id="buyBtn" class="btn btn-pink btn-lg btn-block is-disabled" href="#notify" aria-disabled="true">Coming soon</a>
+      <a id="notifyBtn" class="btn btn-outline btn-block" href="mailto:hello@squishysays.com?subject=Tell%20me%20when%20Squishy%20Says%20is%20available">Email me when it's available</a>
+      <p class="fine" id="checkoutNote">Secure checkout will open here when we launch.</p>
+
+      <div class="details">
+        <h2 class="h-sm">What's in the box</h2>
+        <ul class="ticks">
+          <li>1 Squishy Says squishy with 6 colorful fortune balls inside</li>
+          <li>Clear cube gift box with the answer key on the back</li>
+        </ul>
+        <h2 class="h-sm">The 6 fortunes</h2>
+        <ul id="answerList" class="mini-answers"></ul>
+        <h2 class="h-sm">Good to know</h2>
+        <ul class="ticks">
+          <li>Recommended for ages 6+</li>
+          <li>Buying for a store? <a href="wholesale.html">See wholesale</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="notify" class="band-purple">
+  <div class="wrap stack center narrow">
+    <h2>Be first in line</h2>
+    <p class="body">Send us a quick note and we'll email you the day Squishy Says is available.</p>
+    <a href="mailto:hello@squishysays.com?subject=Tell%20me%20when%20Squishy%20Says%20is%20available" class="btn btn-yellow btn-lg">Notify me</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <img src="assets/img/logo.png" alt="Squishy Says" width="160" height="80" loading="lazy">
+    <nav aria-label="Footer" class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="mailto:hello@squishysays.com">Contact</a>
+    </nav>
+    <p>© <span class="yr">2026</span> Squishy Says™</p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
