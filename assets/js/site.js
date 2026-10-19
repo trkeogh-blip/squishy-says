@@ -204,8 +204,12 @@
       }).then(function (r) { return r.json(); }).then(function (res) {
         if (String(res.success) === 'true') { showThanks(); return; }
         throw new Error(res.message || 'failed');
-      }).catch(function () {
-        err.textContent = 'Sorry, that didn\u2019t send. Please try again, or email info@squishysays.com.';
+      }).catch(function (ex) {
+        var msg = (ex && ex.message) || '';
+        err.textContent = /activat/i.test(msg)
+          ? 'This form is still being set up. Please email info@squishysays.com for now.'
+          : 'Sorry, that didn\u2019t send. Please try again, or email info@squishysays.com.';
+        if (window.console) console.warn('Form service said:', msg);
         err.hidden = false;
         btn.disabled = false;
         btn.textContent = 'Send inquiry';
