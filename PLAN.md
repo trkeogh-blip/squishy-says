@@ -20,13 +20,13 @@
 - [ ] Confirm the preview at `https://trkeogh-blip.github.io/squishy-says/`
 
 ### Domain (Network Solutions → Advanced DNS)
-- [ ] A record `@` → `185.199.108.153`
-- [ ] A record `@` → `185.199.109.153`
-- [ ] A record `@` → `185.199.110.153`
-- [ ] A record `@` → `185.199.111.153`
-- [ ] CNAME `www` → `trkeogh-blip.github.io`
-- [ ] Remove any other A/AAAA records on `@` and any old `www` record (parking page)
-- [ ] Leave MX (email) records alone
+- [x] A record `@` → `185.199.108.153`
+- [x] A record `@` → `185.199.109.153`
+- [x] A record `@` → `185.199.110.153`
+- [x] A record `@` → `185.199.111.153`
+- [x] CNAME `www` → `trkeogh-blip.github.io`
+- [x] Remove any other A/AAAA records on `@` and any old `www` record (parking page)
+- [x] Leave MX (email) records alone
 - [ ] GitHub Settings → Pages → Custom domain `www.squishysays.com`; tick **Enforce HTTPS** once the certificate issues
 - [ ] Optional: verify the domain in GitHub account settings (blocks takeover)
 - [ ] Domain auto-renew ON and transfer lock ON at Network Solutions
