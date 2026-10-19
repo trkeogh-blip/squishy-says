@@ -34,6 +34,8 @@
 ### Email
 - [ ] Set up `info@squishysays.com` (Google Workspace, or a free forwarder to a personal inbox). The site's contact buttons already point to it — **until it works, vendor emails bounce.**
 
+- [ ] **Activate the wholesale form:** submit one test inquiry on the live site, then click "Activate Form" in the FormSubmit email that arrives at info@. Until then, inquiries are held, not delivered.
+
 ### Content the owners must confirm
 - [ ] Color → answer key: box back vs. fortune board disagree. Site uses the box back.
 - [ ] Founders' story wording (first names? photo?)

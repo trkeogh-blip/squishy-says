@@ -83,7 +83,11 @@
       <p class="body">Tell us a little about your store and we'll send pricing, minimums and availability.</p>
       <p class="fine">Prefer email? Write to <a href="mailto:info@squishysays.com?subject=Squishy%20Says%20wholesale%20inquiry">info@squishysays.com</a>.</p>
     </div>
-    <form id="wholesaleForm" class="form" novalidate>
+    <form id="wholesaleForm" class="form" action="https://formsubmit.co/info@squishysays.com" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="New wholesale inquiry — squishysays.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://www.squishysays.com/wholesale.html?sent=1#inquire">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="field"><label for="store">Store name</label><input id="store" name="store" class="input" required autocomplete="organization"></div>
       <div class="field"><label for="contact">Your name</label><input id="contact" name="contact" class="input" required autocomplete="name"></div>
       <div class="field-row">
@@ -100,9 +104,12 @@
       </div>
       <div class="field"><label for="message">Anything else? <span class="opt">(optional)</span></label><textarea id="message" name="message" class="input" rows="4"></textarea></div>
       <p id="formError" class="form-error" role="alert" hidden>Please fill in your store name, your name and a valid email.</p>
-      <button type="submit" class="btn btn-dark btn-lg">Send inquiry</button>
-      <p class="fine">This opens your email app with your details filled in, ready to send.</p>
+      <button id="formSubmit" type="submit" class="btn btn-dark btn-lg">Send inquiry</button>
     </form>
+    <div id="formThanks" class="thanks" role="status" tabindex="-1" hidden>
+      <h3>Thanks — we got it!</h3>
+      <p class="body">We'll be in touch with pricing and availability soon. If it's urgent, email <a href="mailto:info@squishysays.com">info@squishysays.com</a>.</p>
+    </div>
   </div>
 </section>
 

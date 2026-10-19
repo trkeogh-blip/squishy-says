@@ -163,29 +163,53 @@
     });
   }
 
-  // ===== Wholesale inquiry form → pre-filled email =====
+  // ===== Wholesale inquiry form → emailed to info@ via FormSubmit =====
+  // First-ever submission sends an activation email to info@squishysays.com;
+  // click "Activate" in it once and every later inquiry arrives directly.
   var form = $('wholesaleForm');
   if (form) {
+    var thanks = $('formThanks');
+    var showThanks = function () {
+      form.hidden = true;
+      thanks.hidden = false;
+      thanks.focus();
+    };
+    if (/[?&]sent=1/.test(window.location.search)) showThanks();
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var v = function (id) { return ($(id).value || '').trim(); };
-      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'));
       var err = $('formError');
-      if (!v('store') || !v('contact') || !emailOk) { err.hidden = false; return; }
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'));
+      if (!v('store') || !v('contact') || !emailOk) {
+        err.textContent = 'Please fill in your store name, your name and a valid email.';
+        err.hidden = false;
+        return;
+      }
       err.hidden = true;
-      var body = [
-        'Store: ' + v('store'),
-        'Contact: ' + v('contact'),
-        'Email: ' + v('email'),
-        'Phone: ' + (v('phone') || '-'),
-        'Location: ' + (v('location') || '-'),
-        'Store type: ' + v('storetype'),
-        '',
-        v('message')
-      ].join('\n');
-      window.location.href = 'mailto:info@squishysays.com?subject=' +
-        encodeURIComponent('Wholesale inquiry — ' + v('store')) +
-        '&body=' + encodeURIComponent(body);
+      var btn = $('formSubmit');
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+
+      var data = {};
+      Array.prototype.forEach.call(form.elements, function (f) {
+        if (f.name) data[f.name] = f.value;
+      });
+      data._subject = 'Wholesale inquiry \u2014 ' + v('store');
+
+      fetch('https://formsubmit.co/ajax/info@squishysays.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (String(res.success) === 'true') { showThanks(); return; }
+        throw new Error(res.message || 'failed');
+      }).catch(function () {
+        err.textContent = 'Sorry, that didn\u2019t send. Please try again, or email info@squishysays.com.';
+        err.hidden = false;
+        btn.disabled = false;
+        btn.textContent = 'Send inquiry';
+      });
     });
   }
 })();
