@@ -16,8 +16,8 @@
 - [x] Split into three pages: Home, Shop (Buy button "Coming soon"), Wholesale (inquiry form → pre-filled email)
 - [x] Create empty **public** GitHub repo `trkeogh-blip/squishy-says` (no README)
 - [x] Push this code to `main`
-- [ ] Settings → Pages → Source: *Deploy from a branch*, `main` / root
-- [ ] Confirm the preview at `https://trkeogh-blip.github.io/squishy-says/`
+- [x] Settings → Pages → Source: *Deploy from a branch*, `main` / root
+- [x] Confirm the preview at `https://trkeogh-blip.github.io/squishy-says/`
 
 ### Domain (Network Solutions → Advanced DNS)
 - [x] A record `@` → `185.199.108.153`
