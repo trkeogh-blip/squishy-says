@@ -13,7 +13,7 @@
 
   // ===== ANSWER KEY — must match the back of the box =====
   var ANSWERS = [
-    { text: 'YES, GIRL!', color: 'Pink', hex: '#FF3D9A', tint: '#FFE3F1' },
+    { text: 'TOTALLY!', color: 'Pink', hex: '#FF3D9A', tint: '#FFE3F1' },
     { text: 'NO WAY!', color: 'Purple', hex: '#8E4DE0', tint: '#EEE3FC' },
     { text: 'ASK AGAIN LATER', color: 'Yellow', hex: '#FFC93C', tint: '#FFF4CC' },
     { text: 'HECK NO!', color: 'Blue', hex: '#2F7BEA', tint: '#E1ECFD' },

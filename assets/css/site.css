@@ -155,7 +155,7 @@ section > .wrap.stack { padding-top: 80px; padding-bottom: 80px; }
 .band-blush-soft { background: linear-gradient(#FFE3F1, #FFF8FC 70%); }
 .product { display: flex; flex-wrap: wrap; gap: 48px; padding-top: 56px; padding-bottom: 80px; align-items: flex-start; }
 .gallery { flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
-.gallery-main { aspect-ratio: 3 / 2; object-fit: contain; }
+.gallery-main { aspect-ratio: 1 / 1; object-fit: cover; }
 .thumbs { display: flex; gap: 12px; flex-wrap: wrap; }
 .thumb { width: 84px; height: 84px; padding: 0; border: 3px solid transparent; border-radius: 16px; background: #fff; overflow: hidden; cursor: pointer; }
 .thumb img { width: 100%; height: 100%; object-fit: cover; }
