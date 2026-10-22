@@ -200,3 +200,9 @@ select.input { appearance: auto; }
 .thanks { flex: 2 1 460px; min-width: 0; background: var(--aqua-tint); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 10px; align-self: flex-start; }
 .thanks:focus { outline: none; }
 [hidden] { display: none !important; }
+
+/* social links */
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: #F3E9FF; background: rgba(255,255,255,.12); transition: background .15s ease; }
+.footer-social a:hover, .footer-social a:focus-visible { background: var(--pink); color: #fff; }
+.link-light { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
