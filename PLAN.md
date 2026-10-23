@@ -102,6 +102,7 @@ Sign up at stripe.com as the business owner. Have ready:
 - [ ] ✔ Proof: Dashboard shows the account activated with payouts enabled.
 
 ### Gate 2 — Site ready for Stripe review `[Agent]` (can start early, drafts only)
+> **Status 2026-10-23:** all pages and the multi-offer Shop code are drafted on branch `gate-2-store-pages` (draft PR). Waiting on the owners to answer every highlighted `[OWNER TO CONFIRM]` item; merge only after they're cleared.
 Stripe requires the site to show what's sold, the price, how to reach the business,
 and its refund/shipping policies. Build these from owner-supplied terms; anything
 unknown is marked `[OWNER TO CONFIRM]` and the page stays unlinked until cleared.
