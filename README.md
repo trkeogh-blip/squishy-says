@@ -4,10 +4,11 @@ Brand website for **Squishy Says**, the squishy with something to say.
 *Ask it. Squish it. See your fortune!*
 
 Plain static HTML/CSS/JS hosted free on GitHub Pages. No build step.
+Payments (when selling starts) go through Stripe-hosted checkout — no server.
 
-- `index.html` — the page
+- `index.html`, `shop.html`, `wholesale.html` — the pages
 - `assets/css/site.css` — styles and brand tokens
-- `assets/js/site.js` — fortune demo and answer key (`ANSWERS` array)
+- `assets/js/site.js` — fortune demo, answer key (`ANSWERS`) and shop settings (`SHOP`)
 - `assets/img/` — logo, mockups, icons
 - `CNAME` — custom domain for GitHub Pages
 
