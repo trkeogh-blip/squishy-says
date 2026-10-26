@@ -225,3 +225,4 @@ mark.todo { background: var(--sun); color: var(--ink); font-weight: 800; padding
 .offer-detail { font-size: 15px; color: var(--ink-soft); font-weight: 700; }
 .offer-price { font-family: var(--display); font-weight: 600; font-size: 24px; text-align: right; }
 .offer .btn { grid-column: 1 / -1; width: 100%; align-self: stretch; }
+.ship-note { margin-top: -10px; font-weight: 800; color: var(--purple); }

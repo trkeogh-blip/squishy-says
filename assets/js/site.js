@@ -12,11 +12,16 @@
   // An offer only appears once it has BOTH a price and a live link. With none
   // ready, the Shop page shows "Coming soon". Never put a test link here, and
   // never fill these in without the owners' go-ahead (see PLAN.md, Gate 5).
+  // shipNote: shown under the price before and after launch ('' hides it).
+  // preorder: true = the pill says "Pre-order" once links are live.
   var SHOP = {
+    shipNote: 'Pre-order — ships mid-November',
+    preorder: true,
     offers: [
-      { label: 'Single', detail: '1 Squishy Says in its gift box', price: '', paymentLink: '' }
-      // Example of a second offer, once the owners set it up:
-      // , { label: '3-Pack', detail: '3 Squishy Says', price: '', paymentLink: '' }
+      { label: 'Single', detail: '1 Squishy Says · $4.95 shipping', price: '$13.99', paymentLink: '' },
+      { label: '3-Pack', detail: '3 Squishy Says · free shipping', price: '$41.97', paymentLink: '' },
+      // Owners: photos and price to come. Stays hidden until price + live link are set.
+      { label: 'Make-Your-Own Fortune Cards', detail: '10 blank cards', price: '', paymentLink: '' }
     ]
   };
 
@@ -158,6 +163,8 @@
     var ready = SHOP.offers.filter(function (o) {
       return o && o.label && o.price && isLiveLink(o.paymentLink);
     });
+    if (SHOP.offers[0] && SHOP.offers[0].price) $('priceLabel').textContent = SHOP.offers[0].price;
+    if (SHOP.shipNote) { $('shipNote').textContent = SHOP.shipNote; $('shipNote').hidden = false; }
     if (ready.length) {
       var box = $('offers');
       ready.forEach(function (o) {
@@ -177,7 +184,7 @@
       buyBtn.hidden = true;
       if (ready.length === 1) $('priceLabel').textContent = ready[0].price;
       else $('priceLabel').hidden = true;
-      $('stockPill').textContent = 'In stock';
+      $('stockPill').textContent = SHOP.preorder ? 'Pre-order' : 'In stock';
       $('checkoutNote').textContent = 'Secure checkout by Stripe. Shipping and any sales tax are shown before you pay.';
       $('notifyBtn').hidden = true;
       var notify = $('notify');
