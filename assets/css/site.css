@@ -206,3 +206,23 @@ select.input { appearance: auto; }
 .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: #F3E9FF; background: rgba(255,255,255,.12); transition: background .15s ease; }
 .footer-social a:hover, .footer-social a:focus-visible { background: var(--pink); color: #fff; }
 .link-light { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ===== Store pages: policies, thank-you, offers ===== */
+.policy { max-width: 760px; display: flex; flex-direction: column; gap: 14px; padding-top: 56px; padding-bottom: 80px; }
+.policy .lead { max-width: none; }
+.policy-sec { display: flex; flex-direction: column; gap: 10px; padding-top: 18px; border-top: 2px solid #F0DDEB; }
+.policy-sec .ticks { font-size: 17px; }
+mark.todo { background: var(--sun); color: var(--ink); font-weight: 800; padding: 1px 6px; border-radius: 6px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.draft-banner { background: var(--sun); color: var(--ink); font-weight: 800; font-size: 15px; padding: 10px 0; text-align: center; }
+.thanks-page { padding-top: 64px; padding-bottom: 80px; }
+.thanks-fortune { background: #DDF6E4; border-color: #2FBF5A; align-self: center; }
+.next-steps { background: #fff; border-radius: var(--radius); padding: 24px 28px; text-align: left; display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.next-steps ol.ticks { padding-left: 24px; }
+.offers { display: flex; flex-direction: column; gap: 12px; }
+.offer { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px 16px; background: #fff; border: 3px solid #F0DDEB; border-radius: 22px; padding: 16px 18px; }
+.offer-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.offer-label { font-family: var(--display); font-weight: 700; font-size: 24px; line-height: 1.1; }
+.offer-detail { font-size: 15px; color: var(--ink-soft); font-weight: 700; }
+.offer-price { font-family: var(--display); font-weight: 600; font-size: 24px; text-align: right; }
+.offer .btn { grid-column: 1 / -1; width: 100%; align-self: stretch; }
+.ship-note { margin-top: -10px; font-weight: 800; color: var(--purple); }

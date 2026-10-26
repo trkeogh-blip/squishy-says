@@ -3,12 +3,26 @@
   'use strict';
 
   // ===== SHOP SETTINGS — the only place to edit when it's time to sell =====
-  // paymentLink: paste a Stripe Payment Link (https://buy.stripe.com/...) or a
-  //              Shopify Buy Button checkout URL. Empty = "Coming soon".
-  // price:       the price shown on the Shop page, e.g. '$12.99'. Empty = "Price coming soon".
+  // One entry per thing a customer can buy. Each gets its own Stripe Payment
+  // Link (with its own shipping rate) so multi-packs can carry a shipping deal.
+  //   label:       what the button row is called, e.g. 'Single' or '3-Pack'
+  //   detail:      one short line under the label
+  //   price:       shown on the page, e.g. '$12.99' (Stripe charges the real amount)
+  //   paymentLink: a LIVE Stripe Payment Link, https://buy.stripe.com/...
+  // An offer only appears once it has BOTH a price and a live link. With none
+  // ready, the Shop page shows "Coming soon". Never put a test link here, and
+  // never fill these in without the owners' go-ahead (see PLAN.md, Gate 5).
+  // shipNote: shown under the price before and after launch ('' hides it).
+  // preorder: true = the pill says "Pre-order" once links are live.
   var SHOP = {
-    paymentLink: '',
-    price: ''
+    shipNote: 'Pre-order — ships mid-November',
+    preorder: true,
+    offers: [
+      { label: 'Single', detail: '1 Squishy Says · $4.95 shipping', price: '$13.99', paymentLink: '' },
+      { label: '3-Pack', detail: '3 Squishy Says · free shipping', price: '$41.97', paymentLink: '' },
+      // Owners: photos and price to come. Stays hidden until price + live link are set.
+      { label: 'Make-Your-Own Fortune Cards', detail: '10 blank cards', price: '', paymentLink: '' }
+    ]
   };
 
   // ===== ANSWER KEY — must match the back of the box =====
@@ -142,15 +156,39 @@
   // ===== Shop page =====
   var buyBtn = $('buyBtn');
   if (buyBtn) {
-    if (SHOP.price) $('priceLabel').textContent = SHOP.price;
-    if (SHOP.paymentLink) {
-      buyBtn.href = SHOP.paymentLink;
-      buyBtn.textContent = 'Buy now';
-      buyBtn.classList.remove('is-disabled');
-      buyBtn.removeAttribute('aria-disabled');
-      $('stockPill').textContent = 'In stock';
-      $('checkoutNote').textContent = 'Secure checkout. You’ll be taken to our payment page to finish your order.';
+    var isLiveLink = function (url) {
+      // Only real, live Stripe Payment Links; test links never render.
+      return /^https:\/\/buy\.stripe\.com\/(?!test_)[A-Za-z0-9_]+$/.test(url || '');
+    };
+    var ready = SHOP.offers.filter(function (o) {
+      return o && o.label && o.price && isLiveLink(o.paymentLink);
+    });
+    if (SHOP.offers[0] && SHOP.offers[0].price) $('priceLabel').textContent = SHOP.offers[0].price;
+    if (SHOP.shipNote) { $('shipNote').textContent = SHOP.shipNote; $('shipNote').hidden = false; }
+    if (ready.length) {
+      var box = $('offers');
+      ready.forEach(function (o) {
+        var row = el('div', 'offer');
+        var txt = el('div', 'offer-text');
+        txt.appendChild(el('span', 'offer-label', o.label));
+        if (o.detail) txt.appendChild(el('span', 'offer-detail', o.detail));
+        row.appendChild(txt);
+        row.appendChild(el('span', 'offer-price', o.price));
+        var a = el('a', 'btn btn-pink', 'Buy now');
+        a.href = o.paymentLink;
+        a.setAttribute('aria-label', 'Buy ' + o.label + ', ' + o.price);
+        row.appendChild(a);
+        box.appendChild(row);
+      });
+      box.hidden = false;
+      buyBtn.hidden = true;
+      if (ready.length === 1) $('priceLabel').textContent = ready[0].price;
+      else $('priceLabel').hidden = true;
+      $('stockPill').textContent = SHOP.preorder ? 'Pre-order' : 'In stock';
+      $('checkoutNote').textContent = 'Secure checkout by Stripe. Shipping and any sales tax are shown before you pay.';
       $('notifyBtn').hidden = true;
+      var notify = $('notify');
+      if (notify) notify.hidden = true;
     }
     var main = $('mainImg');
     var thumbs = document.querySelectorAll('.thumb');
