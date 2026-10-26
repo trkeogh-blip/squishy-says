@@ -38,7 +38,7 @@
 
 ### Content the owners must confirm
 - [ ] Color → answer key: box back vs. fortune board disagree. Site uses the box back.
-- [ ] Founders' story wording (first names? photo?) — founder images added to `assets/img/founder-olive-*.jpg`; placement pending owners
+- [ ] Founders' story wording (first names? photo?) — founder photo now in the home page story section (`founder-olive-square.jpg`); banner version unused so far
 - [ ] Any launch timing to state publicly (site says "Coming soon to stores")
 - [ ] Replace rendered mockups with real product photos when prototypes arrive
 
