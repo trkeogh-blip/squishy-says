@@ -3,12 +3,13 @@
   'use strict';
 
   // ===== SHOP SETTINGS — the only place to edit when it's time to sell =====
-  // paymentLink: paste a Stripe Payment Link (https://buy.stripe.com/...) or a
-  //              Shopify Buy Button checkout URL. Empty = "Coming soon".
-  // price:       the price shown on the Shop page, e.g. '$12.99'. Empty = "Price coming soon".
+  // paymentLink: paste a live Stripe Payment Link (https://buy.stripe.com/...)
+  //              only after the Gate 5 go-ahead. Empty = "Coming soon".
+  // price:       the price shown on the Shop page. Empty = "Price coming soon".
+  //              $14 set by the owner 2026-10-29 (see PLAN.md decisions log).
   var SHOP = {
     paymentLink: '',
-    price: ''
+    price: '$14'
   };
 
   // ===== ANSWER KEY — must match the back of the box =====

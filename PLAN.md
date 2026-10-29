@@ -168,3 +168,4 @@ own Payment Link with its own shipping rate.
 
 ## Decisions log
 - 2026-10-23 — Store runs on Stripe on our own site, not Shopify. Site stays on GitHub Pages; domain stays at Network Solutions. Ship from home via USPS with a label service.
+- 2026-10-29 — Owner's website punch list (handwritten): answer key centered 3×2 (no 4+2 wrap); founders' story centered; contact line reworded; TikTok @squishysayssquish added; retail price **$14** (owner-set; shown on Shop page, Buy button still "Coming soon"); wholesale specs corrected — unit packaging is a gift box with a clear PVC window (not a clear cube), item number removed, "Age grade" → "Age", "It's giftable" copy fixed. Still open from that list: new Shop photos, Faire shop link, Stripe setup and test.
