@@ -7,7 +7,7 @@
   // Link (with its own shipping rate) so multi-packs can carry a shipping deal.
   //   label:       what the button row is called, e.g. 'Single' or '3-Pack'
   //   detail:      one short line under the label
-  //   price:       shown on the page, e.g. '$12.99' (Stripe charges the real amount)
+  //   price:       shown on the page, e.g. '$14' (Stripe charges the real amount)
   //   paymentLink: a LIVE Stripe Payment Link, https://buy.stripe.com/...
   // An offer only appears once it has BOTH a price and a live link. With none
   // ready, the Shop page shows "Coming soon". Never put a test link here, and
@@ -18,9 +18,9 @@
     shipNote: 'Pre-order — ships mid-November',
     preorder: true,
     offers: [
-      { label: 'Single', detail: '1 Squishy Says · $4.95 shipping', price: '$13.99', paymentLink: '' },
-      { label: '3-Pack', detail: '3 Squishy Says · free shipping', price: '$41.97', paymentLink: '' },
-      // Owners: photos and price to come. Stays hidden until price + live link are set.
+      { label: 'Single', detail: '1 Squishy Says · $5 shipping', price: '$14', paymentLink: '' },
+      { label: '3-Pack', detail: '3 Squishy Says · free shipping', price: '$36', paymentLink: '' },
+      // Phase two (30–90 days after launch, per Tim 2026-10-27). Hidden until price + live link are set.
       { label: 'Make-Your-Own Fortune Cards', detail: '10 blank cards', price: '', paymentLink: '' }
     ]
   };
