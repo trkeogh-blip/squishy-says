@@ -32,7 +32,7 @@
 - [ ] Domain auto-renew ON and transfer lock ON at Network Solutions
 
 ### Email
-- [ ] Set up `info@squishysays.com` (Google Workspace, or a free forwarder to a personal inbox). The site's contact buttons already point to it — **until it works, vendor emails bounce.**
+- [x] `info@squishysays.com` works (Network Solutions Professional Email; renews 2026-11-18, owner OK to keep).
 
 - [x] ~~Activate the wholesale form~~ — form removed 2026-11-02; wholesale ordering now goes through Faire.
 
@@ -80,16 +80,18 @@ this repo. **✔ Proof** = the artifact that closes the task.
 ---
 
 ### Gate 0 — Go / no-go prerequisites (blocks taking any money)
-- [ ] `[Owner]` Supplier test reports (ASTM F963 / CPSIA, incl. small-parts review of the inner balls), Children's Product Certificate, and tracking label on the product/packaging. ✔ PDFs on file (not in this repo).
-- [ ] `[Owner]` Confirm the color → answer key (box back vs. fortune board vs. brief wording). ✔ Note in this file; `ANSWERS` updated if it changes.
-- [ ] `[Owner]` Landed unit cost known (product + freight + duty + packaging) and retail price(s) set — single and any multi-pack. ✔ Prices written here.
-- [ ] `[Owner]` Register with MassTaxConnect to collect MA sales tax (6.25%). ✔ Registration confirmation.
-- [ ] `[Owner]` Business checking account in the DBA name (keep it separate from every other entity). ✔ Account open.
-- [ ] `[Owner]` `info@squishysays.com` working (Phase 1 email item) — Stripe receipts and customer replies depend on it. ✔ Test email received.
-- [ ] `[Owner]` Real product photos from prototypes. ✔ Images in `assets/img/`.
+- [ ] `[Owner]` Supplier test reports (ASTM F963 / CPSIA, incl. small-parts review of the inner balls), Children's Product Certificate, and tracking label on the product/packaging. ✔ PDFs on file (not in this repo). **Status 2026-11-02:** samples go to the lab Fri 2026-11-06. Applies to Faire orders too — no shipments to retailers before the CPC.
+- [x] `[Owner]` Color → answer key confirmed final 2026-11-02: Pink TOTALLY! · Purple NO WAY! · Yellow ASK AGAIN LATER · Blue HECK NO! · Green GOOD THINGS AHEAD! · Orange MAYBE! THE UNIVERSE IS THINKING. Matches `ANSWERS` and `fortune-board.jpg`; no change needed.
+- [x] `[Owner]` Retail price set: **$14** single + $5 shipping; **3-Pack $36** as its own item, free shipping (2026-11-02). Landed cost **$3.63/unit all-in** (all one-time spend to date + a $1,000 rush charge, over 2,500 units); supplies alone $2.17/unit. Faire wholesale $7.00.
+- [ ] `[Owner]` Make-Your-Own Fortune Cards (10 cards): **phase two**, 30–90 days after launch. Slot exists in `SHOP`, hidden until filled.
+- [x] `[Owner]` Registered with MassTaxConnect to collect MA sales tax (6.25%) — owner reports done 2026-11-02.
+- [ ] `[Owner]` (opening 2026-11-02) Business checking account in the DBA name (keep it separate from every other entity). ✔ Account open.
+- [x] `[Owner]` `info@squishysays.com` working (Network Solutions mailbox; renewal 2026-11-18 approved).
+- [ ] `[Owner]` Real product photos. First 420 units arrive 2026-11-12; owner will photograph and send. ✔ Images in `assets/img/`.
 - [ ] `[Tim]` Go / no-go sign-off for Gate 0. ✔ Date + initials here.
 
 ### Gate 1 — Stripe account `[Owner]` (can start early)
+> **Status 2026-11-02:** owner will finish Stripe setup once the business bank account opens (today). Needs the Gate 2 pages live for Stripe's site review.
 Sign up at stripe.com as the business owner. Have ready:
 - [ ] Business type: **Individual / sole proprietorship**; legal name = owner's name; public/DBA name "Squishy Says"
 - [ ] EIN, business address, phone, industry (toys & games), product description
@@ -102,6 +104,7 @@ Sign up at stripe.com as the business owner. Have ready:
 - [ ] ✔ Proof: Dashboard shows the account activated with payouts enabled.
 
 ### Gate 2 — Site ready for Stripe review `[Agent]` (can start early, drafts only)
+> **Status 2026-10-26:** owner answered every policy question; pages finalized on branch `gate-2-store-pages` (PR #1). Merge = publish, after Tim/owner approve the phone screenshots.
 Stripe requires the site to show what's sold, the price, how to reach the business,
 and its refund/shipping policies. Build these from owner-supplied terms; anything
 unknown is marked `[OWNER TO CONFIRM]` and the page stays unlinked until cleared.
@@ -151,16 +154,16 @@ unknown is marked `[OWNER TO CONFIRM]` and the page stays unlinked until cleared
 
 | Item | Decision |
 |---|---|
-| Ship-to area at launch | US only — `[OWNER TO CONFIRM]` |
+| Ship-to area at launch | US only |
 | Carrier / service | USPS Ground Advantage (under 1 lb) |
-| Label tool | Pirate Ship to start; Shippo when automating |
-| Processing time promise | `[OWNER TO CONFIRM]` (e.g. ships in 2 business days) |
+| Label tool | Pirate Ship (owner evaluating) |
+| Processing time promise | 2–3 business days; launch batch is a pre-order shipping mid-November 2026 |
 | Packed weight — single | `[weigh]` |
 | Packed weight — 3-pack | `[weigh]` |
-| Customer shipping charge — single | `[set after pricing labels]` (flat rate) |
-| Customer shipping charge — 3-pack | `[set after pricing labels]` (consider free, to push multi-packs) |
+| Customer shipping charge — single | $5 flat per order (Single link: cap quantity at 2) |
+| Customer shipping charge — 3-pack | Free — 3-Pack is its own item at $36 |
 | Return address on labels | `[OWNER TO CONFIRM]` (home vs. PO box) |
-| Lost / damaged policy | `[OWNER TO CONFIRM]` |
+| Lost / damaged policy | Report within 7 days; customer chooses replacement or refund |
 
 Stripe Payment Links can't do "free shipping over $X" automatically, so the
 incentive is built into the offers instead: each offer (Single, 3-Pack) gets its
@@ -168,5 +171,8 @@ own Payment Link with its own shipping rate.
 
 ## Decisions log
 - 2026-10-23 — Store runs on Stripe on our own site, not Shopify. Site stays on GitHub Pages; domain stays at Network Solutions. Ship from home via USPS with a label service.
+- 2026-10-26 — Owner answers: US only; ships in 2–3 business days via USPS Ground Advantage; $4.95 flat shipping, free on 3+; lost/damaged reported within 7 days, customer picks replacement or refund; wrong address reshipped for new postage; returns 14 days, unopened, customer pays return postage, refund in 5 business days; seller shown as "Squishy Says"; wants a mailing list; packaging carries "ages 6+" only. Launch price $13.99, pre-order shipping mid-November. New product: Make-Your-Own Fortune Cards (10), photos/price to come. Add the 8-year-old inventor's story to the site (content pending).
+- 2026-10-26 — OPEN: owner proposes selling before CPSIA test reports / Children's Product Certificate exist. CLAUDE.md rule 8 keeps the Buy buttons off until Tim and the owner resolve this.
 - 2026-10-29 — Owner's website punch list (handwritten): answer key centered 3×2 (no 4+2 wrap); founders' story centered; contact line reworded; TikTok @squishysayssquish added; retail price **$14** (owner-set; shown on Shop page, Buy button still "Coming soon"); wholesale specs corrected — unit packaging is a gift box with a clear PVC window (not a clear cube), item number removed, "Age grade" → "Age", "It's giftable" copy fixed. Still open from that list: new Shop photos, Stripe setup and test.
 - 2026-11-02 — Wholesale page routes retailers to the Faire shop (`squishysays.faire.com?utm_source=embed`) instead of an inquiry form: hero button, specs "Pricing & minimums" link, and a Faire ordering card. Inquiry form removed (Tim: retailers should order on Faire, not reach out). The owners can paste Faire's official widget code (Faire portal → Faire Direct → Widget) over the card if they prefer it.
+- 2026-11-02 — Owner answers (relayed by Tim): 3-Pack $36 as its own item with free shipping; answer key final (matches site); packaging age 6+; first 420 units arrive Nov 12 (owner photographs); bank account opens today; MA sales tax registered; samples to the testing lab Fri Nov 6; landed cost $3.63/unit all-in; Stripe setup after bank account; keep the info@ mailbox. Single shipping set to $5 (round number, per Tim's pricing preference) in place of $4.95 — owner to confirm.
