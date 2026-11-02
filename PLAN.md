@@ -34,7 +34,7 @@
 ### Email
 - [ ] Set up `info@squishysays.com` (Google Workspace, or a free forwarder to a personal inbox). The site's contact buttons already point to it — **until it works, vendor emails bounce.**
 
-- [ ] **Activate the wholesale form:** submit one test inquiry on the live site, then click "Activate Form" in the FormSubmit email that arrives at info@. Until then, inquiries are held, not delivered.
+- [x] ~~Activate the wholesale form~~ — form removed 2026-11-02; wholesale ordering now goes through Faire.
 
 ### Content the owners must confirm
 - [ ] Color → answer key: box back vs. fortune board disagree. Site uses the box back.
@@ -168,4 +168,5 @@ own Payment Link with its own shipping rate.
 
 ## Decisions log
 - 2026-10-23 — Store runs on Stripe on our own site, not Shopify. Site stays on GitHub Pages; domain stays at Network Solutions. Ship from home via USPS with a label service.
-- 2026-10-29 — Owner's website punch list (handwritten): answer key centered 3×2 (no 4+2 wrap); founders' story centered; contact line reworded; TikTok @squishysayssquish added; retail price **$14** (owner-set; shown on Shop page, Buy button still "Coming soon"); wholesale specs corrected — unit packaging is a gift box with a clear PVC window (not a clear cube), item number removed, "Age grade" → "Age", "It's giftable" copy fixed. Still open from that list: new Shop photos, Faire shop link, Stripe setup and test.
+- 2026-10-29 — Owner's website punch list (handwritten): answer key centered 3×2 (no 4+2 wrap); founders' story centered; contact line reworded; TikTok @squishysayssquish added; retail price **$14** (owner-set; shown on Shop page, Buy button still "Coming soon"); wholesale specs corrected — unit packaging is a gift box with a clear PVC window (not a clear cube), item number removed, "Age grade" → "Age", "It's giftable" copy fixed. Still open from that list: new Shop photos, Stripe setup and test.
+- 2026-11-02 — Wholesale page routes retailers to the Faire shop (`squishysays.faire.com?utm_source=embed`) instead of an inquiry form: hero button, specs "Pricing & minimums" link, and a Faire ordering card. Inquiry form removed (Tim: retailers should order on Faire, not reach out). The owners can paste Faire's official widget code (Faire portal → Faire Direct → Widget) over the card if they prefer it.

@@ -212,3 +212,11 @@ select.input { appearance: auto; }
 /* home: centered founders' story */
 .story-center { align-items: center; text-align: center; padding-top: 80px; padding-bottom: 80px; }
 .story-center .card-img { max-width: 440px; width: 100%; margin: 0 auto; }
+
+/* Faire wholesale ordering card */
+.faire-card { max-width: 720px; margin: 0 auto; padding: 48px 32px; text-align: center; background: var(--aqua-tint); border-radius: var(--radius); display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.faire-card .btn { align-self: center; }
+.faire-card .body { max-width: 540px; }
+#order { padding-top: 80px; padding-bottom: 80px; }
+@media (max-width: 480px) { .faire-card { padding: 36px 20px; } .faire-btn { font-size: 19px; padding: 14px 24px; } }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
