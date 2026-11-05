@@ -105,13 +105,13 @@ Sign up at stripe.com as the business owner. Have ready:
 Stripe requires the site to show what's sold, the price, how to reach the business,
 and its refund/shipping policies. Build these from owner-supplied terms; anything
 unknown is marked `[OWNER TO CONFIRM]` and the page stays unlinked until cleared.
-- [ ] `shipping.html` — where we ship (US only at launch?), processing time, carrier, rates, lost/damaged parcels. ✔ Screenshot phone + desktop.
-- [ ] `returns.html` — return window, condition, who pays return postage, refund timing, how to start a return. ✔ Screenshot.
-- [ ] `privacy.html` — what we collect (name, email, shipping address), that Stripe processes payment, no selling of data, contact. ✔ Screenshot.
-- [ ] `terms.html` — terms of sale (pricing errors, sales tax, age 6+ / adult purchaser, governing law MA). ✔ Screenshot.
-- [ ] `thanks.html` — order-confirmed page Stripe redirects to (what happens next, ship time, contact). `noindex`. ✔ Screenshot.
-- [ ] Footer on every page: Shipping · Returns · Privacy · Terms · Contact. ✔ Screenshot.
-- [ ] Extend `SHOP` in `assets/js/site.js` to hold multiple offers (e.g. Single, 3-Pack), each with `label`, `price`, `paymentLink`; Shop page renders a button per offer; any empty link stays "Coming soon". Remove the old Shopify wording from the comment. ✔ Screenshot with dummy values on a local preview only — never committed filled in.
+- [x] `shipping.html` (draft 2026-11-05, owner terms pending) — where we ship (US only at launch?), processing time, carrier, rates, lost/damaged parcels. ✔ Screenshot phone + desktop.
+- [x] `returns.html` (draft 2026-11-05, owner terms pending) — return window, condition, who pays return postage, refund timing, how to start a return. ✔ Screenshot.
+- [x] `privacy.html` (draft 2026-11-05, owner terms pending) — what we collect (name, email, shipping address), that Stripe processes payment, no selling of data, contact. ✔ Screenshot.
+- [x] `terms.html` (draft 2026-11-05, owner terms pending) — terms of sale (pricing errors, sales tax, age 6+ / adult purchaser, governing law MA). ✔ Screenshot.
+- [x] `thanks.html` (draft 2026-11-05, processing time pending) — order-confirmed page Stripe redirects to (what happens next, ship time, contact). `noindex`. ✔ Screenshot.
+- [x] Footer on every page: Shipping · Returns · Privacy · Terms · Contact. ✔ Screenshot.
+- [x] Extend `SHOP` in `assets/js/site.js` to hold multiple offers (e.g. Single, 3-Pack), each with `label`, `price`, `paymentLink`; Shop page renders a button per offer; any empty link stays "Coming soon". Remove the old Shopify wording from the comment. ✔ Screenshot with dummy values on a local preview only — never committed filled in.
 - [ ] Shop page: real product description, what's in the box, age 6+ and choking-hazard warning text as approved by the owner. ✔ Screenshot.
 - [ ] `[Tim]` Review all pages; owner clears every `[OWNER TO CONFIRM]`. ✔ Sign-off here.
 
@@ -169,4 +169,5 @@ own Payment Link with its own shipping rate.
 ## Decisions log
 - 2026-10-23 — Store runs on Stripe on our own site, not Shopify. Site stays on GitHub Pages; domain stays at Network Solutions. Ship from home via USPS with a label service.
 - 2026-10-29 — Owner's website punch list (handwritten): answer key centered 3×2 (no 4+2 wrap); founders' story centered; contact line reworded; TikTok @squishysayssquish added; retail price **$14** (owner-set; shown on Shop page, Buy button still "Coming soon"); wholesale specs corrected — unit packaging is a gift box with a clear PVC window (not a clear cube), item number removed, "Age grade" → "Age", "It's giftable" copy fixed. Still open from that list: new Shop photos, Stripe setup and test.
+- 2026-11-05 — Gate 2 drafts built on branch `stripe-gate2` (not on `main`): Shop page now renders one Stripe button per offer from `SHOP.offers` (Single $14 only; test links are ignored on the live domain); `thanks.html`, `shipping.html`, `returns.html`, `privacy.html`, `terms.html` with every unknown marked `[OWNER TO CONFIRM]`; policy links added to every footer. Merge only after the owners clear every marker — Stripe reviews the live site during activation (Gate 1).
 - 2026-11-02 — Wholesale page routes retailers to the Faire shop (`squishysays.faire.com?utm_source=embed`) instead of an inquiry form: hero button, specs "Pricing & minimums" link, and a Faire ordering card. Inquiry form removed (Tim: retailers should order on Faire, not reach out). The owners can paste Faire's official widget code (Faire portal → Faire Direct → Widget) over the card if they prefer it.

@@ -3,13 +3,20 @@
   'use strict';
 
   // ===== SHOP SETTINGS — the only place to edit when it's time to sell =====
-  // paymentLink: paste a live Stripe Payment Link (https://buy.stripe.com/...)
-  //              only after the Gate 5 go-ahead. Empty = "Coming soon".
-  // price:       the price shown on the Shop page. Empty = "Price coming soon".
-  //              $14 set by the owner 2026-10-29 (see PLAN.md decisions log).
+  // One entry per thing a customer can buy (e.g. Single, 3-Pack). Each gets its
+  // own Stripe Payment Link, so each can carry its own shipping rate.
+  //   label:       shown on the button ("Buy Single").
+  //   price:       shown on the Shop page. Only owner-set prices go here.
+  //   paymentLink: a LIVE Stripe Payment Link (https://buy.stripe.com/...), and
+  //                only after the Gate 5 go-ahead in PLAN.md. Empty = "Coming soon".
+  //                Test links (buy.stripe.com/test_...) are ignored on the live
+  //                domain, so a test link can never take a real order.
+  // $14 single price set by the owner 2026-10-29 (see PLAN.md decisions log).
+  // No other offers until the owner sets their prices.
   var SHOP = {
-    paymentLink: '',
-    price: '$14'
+    offers: [
+      { label: 'Single', price: '$14', paymentLink: '' }
+    ]
   };
 
   // ===== ANSWER KEY — must match the back of the box =====
@@ -141,18 +148,42 @@
   }
 
   // ===== Shop page =====
-  var buyBtn = $('buyBtn');
-  if (buyBtn) {
-    if (SHOP.price) $('priceLabel').textContent = SHOP.price;
-    if (SHOP.paymentLink) {
-      buyBtn.href = SHOP.paymentLink;
-      buyBtn.textContent = 'Buy now';
-      buyBtn.classList.remove('is-disabled');
-      buyBtn.removeAttribute('aria-disabled');
+  var offerBox = $('offers');
+  if (offerBox) {
+    var liveSite = /(^|\.)squishysays\.com$/i.test(window.location.hostname);
+    var usable = function (url) {
+      if (!/^https:\/\/buy\.stripe\.com\//.test(url || '')) return false;
+      if (liveSite && /buy\.stripe\.com\/test_/.test(url)) return false;
+      return true;
+    };
+    var offers = SHOP.offers || [];
+    var anyLive = false;
+    if (offers.length && offers[0].price) {
+      $('priceLabel').textContent = offers.length > 1 ? 'From ' + offers[0].price : offers[0].price;
+    }
+    offers.forEach(function (o) {
+      var ok = usable(o.paymentLink);
+      if (ok) anyLive = true;
+      var b = el('a', 'btn btn-pink btn-lg btn-block' + (ok ? '' : ' is-disabled'));
+      var name = offers.length > 1 ? o.label + (o.price ? ' \u2014 ' + o.price : '') : '';
+      if (ok) {
+        b.href = o.paymentLink;
+        b.textContent = name ? 'Buy ' + name : 'Buy now';
+      } else {
+        b.href = '#notify';
+        b.setAttribute('aria-disabled', 'true');
+        b.textContent = name ? name + ': coming soon' : 'Coming soon';
+      }
+      offerBox.appendChild(b);
+    });
+    if (anyLive) {
       $('stockPill').textContent = 'In stock';
-      $('checkoutNote').textContent = 'Secure checkout. You’ll be taken to our payment page to finish your order.';
+      $('checkoutNote').textContent = 'Secure checkout by Stripe. You\u2019ll add your shipping address on the next page.';
       $('notifyBtn').hidden = true;
     }
+  }
+  // gallery thumbnails (shop)
+  if ($('mainImg')) {
     var main = $('mainImg');
     var thumbs = document.querySelectorAll('.thumb');
     Array.prototype.forEach.call(thumbs, function (t) {
