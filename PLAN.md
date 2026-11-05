@@ -151,16 +151,16 @@ unknown is marked `[OWNER TO CONFIRM]` and the page stays unlinked until cleared
 
 | Item | Decision |
 |---|---|
-| Ship-to area at launch | US only — `[OWNER TO CONFIRM]` |
+| Ship-to area at launch | US only (owner, 2026-11-05) |
 | Carrier / service | USPS Ground Advantage (under 1 lb) |
 | Label tool | Pirate Ship to start; Shippo when automating |
-| Processing time promise | `[OWNER TO CONFIRM]` (e.g. ships in 2 business days) |
+| Processing time promise | Ships in 3–5 business days, usually sooner (owner, 2026-11-05) |
 | Packed weight — single | `[weigh]` |
 | Packed weight — 3-pack | `[weigh]` |
-| Customer shipping charge — single | `[set after pricing labels]` (flat rate) |
+| Customer shipping charge — single | `[set after pricing labels]` (flat rate). Owner paid ~$7 retail to Rochester, NY for one unit. |
 | Customer shipping charge — 3-pack | `[set after pricing labels]` (consider free, to push multi-packs) |
 | Return address on labels | `[OWNER TO CONFIRM]` (home vs. PO box) |
-| Lost / damaged policy | `[OWNER TO CONFIRM]` |
+| Lost / damaged policy | Not covered once handed to USPS; we help the customer check with USPS (owner, 2026-11-05) |
 
 Stripe Payment Links can't do "free shipping over $X" automatically, so the
 incentive is built into the offers instead: each offer (Single, 3-Pack) gets its
@@ -170,4 +170,5 @@ own Payment Link with its own shipping rate.
 - 2026-10-23 — Store runs on Stripe on our own site, not Shopify. Site stays on GitHub Pages; domain stays at Network Solutions. Ship from home via USPS with a label service.
 - 2026-10-29 — Owner's website punch list (handwritten): answer key centered 3×2 (no 4+2 wrap); founders' story centered; contact line reworded; TikTok @squishysayssquish added; retail price **$14** (owner-set; shown on Shop page, Buy button still "Coming soon"); wholesale specs corrected — unit packaging is a gift box with a clear PVC window (not a clear cube), item number removed, "Age grade" → "Age", "It's giftable" copy fixed. Still open from that list: new Shop photos, Stripe setup and test.
 - 2026-11-05 — Gate 2 drafts built on branch `stripe-gate2` (not on `main`): Shop page now renders one Stripe button per offer from `SHOP.offers` (Single $14 only; test links are ignored on the live domain); `thanks.html`, `shipping.html`, `returns.html`, `privacy.html`, `terms.html` with every unknown marked `[OWNER TO CONFIRM]`; policy links added to every footer. Merge only after the owners clear every marker — Stripe reviews the live site during activation (Gate 1).
+- 2026-11-05 — Owner terms: US only; ships in 3–5 business days (usually sooner); no lost/damaged-in-transit coverage; returns only for items defective out of the box; seller name "Teah Keogh DBA Squishy Says". Policy pages updated on `stripe-gate2`.
 - 2026-11-02 — Wholesale page routes retailers to the Faire shop (`squishysays.faire.com?utm_source=embed`) instead of an inquiry form: hero button, specs "Pricing & minimums" link, and a Faire ordering card. Inquiry form removed (Tim: retailers should order on Faire, not reach out). The owners can paste Faire's official widget code (Faire portal → Faire Direct → Widget) over the card if they prefer it.
