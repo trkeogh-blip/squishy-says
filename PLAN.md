@@ -90,6 +90,7 @@ this repo. **✔ Proof** = the artifact that closes the task.
 - [ ] `[Tim]` Go / no-go sign-off for Gate 0. ✔ Date + initials here.
 
 ### Gate 1 — Stripe account `[Owner]` (can start early)
+_2026-11-05: owner reports the Stripe account is set up. Still to confirm: activation/payouts status, statement descriptor, Tim added as Developer._
 Sign up at stripe.com as the business owner. Have ready:
 - [ ] Business type: **Individual / sole proprietorship**; legal name = owner's name; public/DBA name "Squishy Says"
 - [ ] EIN, business address, phone, industry (toys & games), product description
