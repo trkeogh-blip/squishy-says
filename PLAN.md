@@ -116,10 +116,11 @@ unknown is marked `[OWNER TO CONFIRM]` and the page stays unlinked until cleared
 - [ ] `[Tim]` Review all pages; owner clears every `[OWNER TO CONFIRM]`. ✔ Sign-off here.
 
 ### Gate 3 — Products, shipping rates and test checkout (Stripe test mode)
-- [ ] `[Owner/Agent]` In **test mode**, create the product(s) and prices matching Gate 0.
+- [x] `[Owner/Agent]` In **test mode**, create the product(s) and prices matching Gate 0. — 2026-11-12: "Squishy Says" $14 one-off, category General – Tangible Goods, in the Stripe sandbox.
 - [ ] `[Owner/Agent]` Create shipping rates (see Shipping plan below) and attach them per Payment Link.
 - [ ] `[Owner/Agent]` Create one test Payment Link per offer: collect shipping address (US only), phone optional, allow quantity adjustment, enable promo codes (optional), after-payment redirect → `https://www.squishysays.com/thanks.html`.
 - [ ] `[Owner]` Sales tax: either (a) Stripe Tax on, registered in MA only (≈0.5% per transaction), or (b) a manual MA tax rate. Decide and record here. ✔ Test receipt shows tax on an MA address, none on an out-of-state address.
+- 2026-11-12 first sandbox test order: $14.00 charged, Stripe fee $0.71, net $13.29 — checkout works end to end. **Gap:** no shipping was charged; add the shipping rate to the test link and re-test. Tested from a private preview copy; the test link was never put on `main`.
 - [ ] `[Agent]` Run test purchases with Stripe's test card (4242…) for each offer, one MA and one non-MA address. ✔ Test receipts + screenshots of each step on a phone.
 - [ ] `[Tim]` Walk through a test checkout on his own phone. ✔ Sign-off here.
 
