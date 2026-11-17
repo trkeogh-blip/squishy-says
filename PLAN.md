@@ -133,7 +133,7 @@ unknown is marked `[OWNER TO CONFIRM]` and the page stays unlinked until cleared
 - [ ] Decide insurance threshold and how lost/damaged parcels are handled; matches `shipping.html`. ✔ Noted here.
 
 ### Gate 5 — Go live
-- [ ] `[Tim + Owner]` Written go-ahead to sell, recorded here with date. **No live link goes on the site before this box is ticked.**
+- [x] `[Tim + Owner]` Written go-ahead to sell — 2026-11-17, Tim sent the live Payment Links to put on the site., recorded here with date. **No live link goes on the site before this box is ticked.**
 - [ ] `[Owner/Agent]` Recreate products, rates and Payment Links in **live** mode (test objects don't carry over).
 - [ ] `[Agent]` Put live Payment Links and prices into `SHOP`; link the policy pages in the footer; push to `main`. ✔ Live site screenshot.
 - [ ] `[Owner]` Make one real purchase with a personal card to a real address, ship it through the full workflow, then refund it. ✔ Order, label, tracking email, refund all confirmed.
@@ -174,3 +174,4 @@ own Payment Link with its own shipping rate.
 - 2026-11-02 — Wholesale page routes retailers to the Faire shop (`squishysays.faire.com?utm_source=embed`) instead of an inquiry form: hero button, specs "Pricing & minimums" link, and a Faire ordering card. Inquiry form removed (Tim: retailers should order on Faire, not reach out). The owners can paste Faire's official widget code (Faire portal → Faire Direct → Widget) over the card if they prefer it.
 - 2026-11-16 — Launch pricing (owner/Tim call, Wispr note "Pricing and Waitlist Strategy"): single **$12**; **3-Pack $32 with free shipping** (normal $36); 5-pack not launching yet. First batch: **26 units**; plan to show "Sold out" with a waitlist after it sells through; limit 3 per person. Site now shows both offers (still "Coming soon"), a `SHOP.status` switch (`coming-soon` / `on-sale` / `sold-out`) and a waitlist form (FormSubmit → info@, needs one-time activation). Stripe can cap payments per link and quantity per order, but cannot track units across two links or enforce a per-person limit across orders — see Gate 5 notes.
 - 2026-11-16 — Single ($12) gets a shipping charge; 3-Pack ($32) ships free. MassTaxConnect registration done. Warning labels on all products (Tim). Live Payment Links being created in the live Stripe account.
+- 2026-11-17 — Selling switched on. Live links checked in a browser before publishing: single $12 + $5 Standard Shipping, quantity capped at 3 ("limited to 3 per order"); 3-Pack $32, no shipping line; tax shown as "enter address to calculate" on both. Open item: shipping countries on both links include Canada, Mexico and Puerto Rico — restrict to United States unless the owner wants to ship there.
