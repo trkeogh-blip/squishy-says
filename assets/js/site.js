@@ -12,8 +12,8 @@
   var SHOP = {
     status: 'on-sale',
     offers: {
-      single: { price: '$12', note: '+ $4.95 shipping · max 2 per order', paymentLink: 'https://buy.stripe.com/9B65kCdPV5xh0fH1ei9Ve00' },
-      three:  { price: '$32', note: 'Free shipping · best value', paymentLink: 'https://buy.stripe.com/bJe14m6nt8Jt8Md0ae9Ve01' }
+      single: { price: '$12', note: '+ $5 shipping · max 2 per order', paymentLink: 'https://buy.stripe.com/9B65kCdPV5xh0fH1ei9Ve00' },
+      three:  { price: '$32', note: 'Free shipping · save $9', paymentLink: 'https://buy.stripe.com/bJe14m6nt8Jt8Md0ae9Ve01' }
     }
   };
 
