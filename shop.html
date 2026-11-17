@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20261117b">
+<link rel="stylesheet" href="assets/css/site.css?v=20261117c">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -72,6 +72,12 @@
 
       <a id="notifyBtn" class="btn btn-outline btn-block" href="#notify">Email me when it's available</a>
       <p class="fine" id="checkoutNote">Secure checkout will open here when we launch. Limit 3 per customer.</p>
+      <p class="ship-line">Ships in 2–3 business days via USPS. $4.95 shipping, <strong>free on 3 or more</strong>. <a href="shipping.html">Shipping</a> · <a href="returns.html">Returns</a></p>
+
+      <div class="warning" role="note" aria-label="Safety warning">
+        <svg class="warning-icon" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false"><path d="M12 2 1 21h22L12 2z" fill="#FFD23F" stroke="#2A1640" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 9v5" stroke="#2A1640" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.25" fill="#2A1640"/></svg>
+        <p><strong>WARNING:</strong><br><strong>CHOKING HAZARD — Toy contains a small ball. Not for children under 3 yrs.</strong></p>
+      </div>
 
       <div class="details">
         <h2 class="h-sm">What's in the box</h2>
@@ -83,7 +89,8 @@
         <ul id="answerList" class="mini-answers"></ul>
         <h2 class="h-sm">Good to know</h2>
         <ul class="ticks">
-          <li>Recommended for ages 6+</li>
+          <li>Recommended for ages 6 and up</li>
+          <li>Ships in 2–3 business days · <a href="returns.html">14-day returns</a> on unopened items</li>
           <li>Buying for a store? <a href="wholesale.html">See wholesale</a></li>
         </ul>
       </div>
@@ -93,19 +100,20 @@
 
 <section id="notify" class="band-purple">
   <div class="wrap stack center narrow">
-    <h2 id="notifyTitle">Be first in line</h2>
-    <p class="body" id="notifyBody">Leave your email and we'll let you know the day Squishy Says is available.</p>
+    <h2 id="notifyTitle">Get Squishy news</h2>
+    <p class="body" id="notifyBody">Join our mailing list for new colors, restocks and special offers.</p>
     <form id="waitlistForm" class="waitlist" action="https://formsubmit.co/info@squishysays.com" method="POST" novalidate>
-      <input type="hidden" name="_subject" value="Waitlist signup — squishysays.com">
+      <input type="hidden" name="_subject" value="Mailing list signup — squishysays.com">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://www.squishysays.com/shop.html?joined=1#notify">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label for="wlEmail" class="sr-only">Your email</label>
       <input id="wlEmail" name="email" type="email" class="input waitlist-input" placeholder="you@email.com" autocomplete="email" required>
-      <button id="wlSubmit" type="submit" class="btn btn-yellow btn-lg">Join the waitlist</button>
+      <button id="wlSubmit" type="submit" class="btn btn-yellow btn-lg">Sign me up</button>
     </form>
     <p id="wlError" class="waitlist-msg" role="alert" hidden></p>
-    <p id="wlThanks" class="waitlist-msg" role="status" hidden>You're on the list! We'll email you as soon as Squishy Says is back.</p>
+    <p id="wlThanks" class="waitlist-msg" role="status" hidden>You're on the list! Watch your inbox for Squishy news.</p>
+    <p class="waitlist-fine">By signing up you agree to get emails from Squishy Says. Unsubscribe any time. <a href="privacy.html">Privacy</a></p>
   </div>
 </section>
 
@@ -119,6 +127,9 @@
       <a href="shop.html">Shop</a>
       <a href="wholesale.html">Wholesale</a>
       <a href="mailto:info@squishysays.com">Contact</a>
+      <a href="shipping.html">Shipping</a>
+      <a href="returns.html">Returns</a>
+      <a href="privacy.html">Privacy</a>
     </nav>
     <div class="footer-social" aria-label="Social media">
       <a href="https://www.facebook.com/profile.php?id=61595738788171" target="_blank" rel="noopener" aria-label="Squishy Says on Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
@@ -129,6 +140,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20261117b"></script>
+<script src="assets/js/site.js?v=20261117c"></script>
 </body>
 </html>

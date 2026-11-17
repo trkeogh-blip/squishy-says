@@ -12,8 +12,8 @@
   var SHOP = {
     status: 'on-sale',
     offers: {
-      single: { price: '$12', note: 'Plus shipping · limit 3 per order', paymentLink: 'https://buy.stripe.com/9B65kCdPV5xh0fH1ei9Ve00' },
-      three:  { price: '$32', note: 'Free shipping · save $4', paymentLink: 'https://buy.stripe.com/bJe14m6nt8Jt8Md0ae9Ve01' }
+      single: { price: '$12', note: '+ $4.95 shipping · max 2 per order', paymentLink: 'https://buy.stripe.com/9B65kCdPV5xh0fH1ei9Ve00' },
+      three:  { price: '$32', note: 'Free shipping · best value', paymentLink: 'https://buy.stripe.com/bJe14m6nt8Jt8Md0ae9Ve01' }
     }
   };
 
@@ -171,7 +171,10 @@
       pill.textContent = 'In stock';
       $('checkoutNote').textContent = 'Secure checkout through Stripe. Limit 3 per customer.';
       $('notifyBtn').hidden = true;
-      if ($('notify')) $('notify').hidden = true;
+    } else if (!soldOut) {
+      $('notifyTitle').textContent = 'Be first in line';
+      $('notifyBody').textContent = 'Leave your email and we\u2019ll let you know the day Squishy Says is available.';
+      $('wlSubmit').textContent = 'Join the waitlist';
     } else if (soldOut) {
       pill.textContent = 'Sold out';
       pill.classList.add('pill-soldout');
@@ -179,6 +182,7 @@
       $('checkoutNote').textContent = 'Sold out! Join the waitlist and we\u2019ll email you when we restock.';
       $('notifyTitle').textContent = 'Sold out! Join the waitlist';
       $('notifyBody').textContent = 'Leave your email and we\u2019ll let you know the moment Squishy Says is back.';
+      $('wlSubmit').textContent = 'Join the waitlist';
     }
     var main = $('mainImg');
     var thumbs = document.querySelectorAll('.thumb');
@@ -284,7 +288,7 @@
         wlError.appendChild(document.createTextNode(' and we\u2019ll add you.'));
         wlError.hidden = false;
         btn.disabled = false;
-        btn.textContent = 'Join the waitlist';
+        btn.textContent = SHOP.status === 'on-sale' ? 'Sign me up' : 'Join the waitlist';
       });
     });
   }
