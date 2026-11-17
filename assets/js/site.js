@@ -2,14 +2,19 @@
 (function () {
   'use strict';
 
-  // ===== SHOP SETTINGS — the only place to edit when it's time to sell =====
-  // paymentLink: paste a live Stripe Payment Link (https://buy.stripe.com/...)
-  //              only after the Gate 5 go-ahead. Empty = "Coming soon".
-  // price:       the price shown on the Shop page. Empty = "Price coming soon".
-  //              $14 set by the owner 2026-10-29 (see PLAN.md decisions log).
+  // ===== SHOP SETTINGS — the only place to edit for selling =====
+  // status:  'coming-soon' | 'on-sale' | 'sold-out'
+  //          'on-sale' only after the Gate 5 go-ahead in PLAN.md.
+  //          'sold-out' greys out the buttons and turns the bottom box into a waitlist.
+  // offers:  one entry per Stripe Payment Link. paymentLink must be a LIVE link
+  //          (https://buy.stripe.com/...) — never a test_ link on main.
+  //          Prices set by the owner 2026-11-16 (see PLAN.md decisions log).
   var SHOP = {
-    paymentLink: '',
-    price: '$14'
+    status: 'coming-soon',
+    offers: {
+      single: { price: '$12', note: 'Limit 3 per order', paymentLink: '' },
+      three:  { price: '$32', note: 'Free shipping · save $4', paymentLink: '' }
+    }
   };
 
   // ===== ANSWER KEY — must match the back of the box =====
@@ -141,17 +146,38 @@
   }
 
   // ===== Shop page =====
-  var buyBtn = $('buyBtn');
-  if (buyBtn) {
-    if (SHOP.price) $('priceLabel').textContent = SHOP.price;
-    if (SHOP.paymentLink) {
-      buyBtn.href = SHOP.paymentLink;
-      buyBtn.textContent = 'Buy now';
-      buyBtn.classList.remove('is-disabled');
-      buyBtn.removeAttribute('aria-disabled');
-      $('stockPill').textContent = 'In stock';
-      $('checkoutNote').textContent = 'Secure checkout. You’ll be taken to our payment page to finish your order.';
+  var offerEls = document.querySelectorAll('[data-offer]');
+  if (offerEls.length) {
+    var onSale = SHOP.status === 'on-sale';
+    var soldOut = SHOP.status === 'sold-out';
+    var anyLive = false;
+    Array.prototype.forEach.call(offerEls, function (row) {
+      var o = SHOP.offers[row.getAttribute('data-offer')] || {};
+      row.querySelector('[data-price]').textContent = o.price || '';
+      row.querySelector('[data-note]').textContent = o.note || '';
+      var btn = row.querySelector('[data-buy]');
+      if (onSale && o.paymentLink) {
+        anyLive = true;
+        btn.href = o.paymentLink;
+        btn.textContent = 'Buy now';
+        btn.classList.remove('is-disabled');
+        btn.removeAttribute('aria-disabled');
+      } else {
+        btn.textContent = soldOut ? 'Sold out' : 'Coming soon';
+      }
+    });
+    var pill = $('stockPill');
+    if (anyLive) {
+      pill.textContent = 'In stock';
+      $('checkoutNote').textContent = 'Secure checkout through Stripe. Limit 3 per customer.';
       $('notifyBtn').hidden = true;
+    } else if (soldOut) {
+      pill.textContent = 'Sold out';
+      pill.classList.add('pill-soldout');
+      $('notifyBtn').textContent = 'Join the waitlist';
+      $('checkoutNote').textContent = 'Sold out! Join the waitlist and we\u2019ll email you when we restock.';
+      $('notifyTitle').textContent = 'Sold out! Join the waitlist';
+      $('notifyBody').textContent = 'Leave your email and we\u2019ll let you know the moment Squishy Says is back.';
     }
     var main = $('mainImg');
     var thumbs = document.querySelectorAll('.thumb');
@@ -214,6 +240,50 @@
         err.hidden = false;
         btn.disabled = false;
         btn.textContent = 'Send inquiry';
+      });
+    });
+  }
+  // ===== Waitlist (shop) → emailed to info@ via FormSubmit =====
+  var wl = $('waitlistForm');
+  if (wl) {
+    var wlThanks = $('wlThanks');
+    var wlError = $('wlError');
+    var joined = function () {
+      wl.hidden = true;
+      wlError.hidden = true;
+      wlThanks.hidden = false;
+    };
+    if (/[?&]joined=1/.test(window.location.search)) joined();
+    wl.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = ($('wlEmail').value || '').trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        wlError.textContent = 'Please enter a valid email address.';
+        wlError.hidden = false;
+        return;
+      }
+      var btn = $('wlSubmit');
+      btn.disabled = true;
+      btn.textContent = 'Joining\u2026';
+      var data = {};
+      Array.prototype.forEach.call(wl.elements, function (f) { if (f.name) data[f.name] = f.value; });
+      fetch('https://formsubmit.co/ajax/info@squishysays.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (String(res.success) === 'true') { joined(); return; }
+        throw new Error(res.message || 'failed');
+      }).catch(function () {
+        wlError.innerHTML = '';
+        wlError.appendChild(document.createTextNode('Sorry, that didn\u2019t go through. Email '));
+        var a = el('a', '', 'info@squishysays.com');
+        a.href = 'mailto:info@squishysays.com?subject=Add%20me%20to%20the%20Squishy%20Says%20waitlist';
+        wlError.appendChild(a);
+        wlError.appendChild(document.createTextNode(' and we\u2019ll add you.'));
+        wlError.hidden = false;
+        btn.disabled = false;
+        btn.textContent = 'Join the waitlist';
       });
     });
   }
