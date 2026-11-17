@@ -12,7 +12,7 @@
   var SHOP = {
     status: 'on-sale',
     offers: {
-      single: { price: '$12', note: 'Limit 3 per order', paymentLink: 'https://buy.stripe.com/9B65kCdPV5xh0fH1ei9Ve00' },
+      single: { price: '$12', note: 'Plus shipping · limit 3 per order', paymentLink: 'https://buy.stripe.com/9B65kCdPV5xh0fH1ei9Ve00' },
       three:  { price: '$32', note: 'Free shipping · save $4', paymentLink: 'https://buy.stripe.com/bJe14m6nt8Jt8Md0ae9Ve01' }
     }
   };
@@ -171,6 +171,7 @@
       pill.textContent = 'In stock';
       $('checkoutNote').textContent = 'Secure checkout through Stripe. Limit 3 per customer.';
       $('notifyBtn').hidden = true;
+      if ($('notify')) $('notify').hidden = true;
     } else if (soldOut) {
       pill.textContent = 'Sold out';
       pill.classList.add('pill-soldout');
