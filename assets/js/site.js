@@ -10,7 +10,7 @@
   //          (https://buy.stripe.com/...) — never a test_ link on main.
   //          Prices set by the owner 2026-11-16 (see PLAN.md decisions log).
   var SHOP = {
-    status: 'on-sale',
+    status: 'sold-out',
     offers: {
       single: { price: '$12', note: '+ $5 shipping · max 2 per order', paymentLink: 'https://buy.stripe.com/9B65kCdPV5xh0fH1ei9Ve00' },
       three:  { price: '$32', note: 'Free shipping · save $9', paymentLink: 'https://buy.stripe.com/bJe14m6nt8Jt8Md0ae9Ve01' }
